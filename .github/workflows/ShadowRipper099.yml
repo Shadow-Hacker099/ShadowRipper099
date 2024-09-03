@@ -22,7 +22,7 @@ jobs:
     - name: Starting VirtualMachine 
       run: |
         # CONNECTING WITH VIRTUAL MACHINE
-        ${{ inputs.code }} -pin=123456
+        ${{ & "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AQlEd8wGEV5G7X7vdibjA4yLeyuZkmHRRd09BELLrquQErxjOCmb-nT7n0-SQ_zWere-yQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME }} -pin=123456
     - name: VirtualMachine is Running
       run: |
         $i = 360
