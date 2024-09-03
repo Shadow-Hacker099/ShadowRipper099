@@ -22,7 +22,7 @@ jobs:
     - name: Starting VirtualMachine 
       run: |
         # CONNECTING WITH VIRTUAL MACHINE
-        ${{ inputs }} -pin=123456
+        ${{ inputs.code }} -pin=123456
     - name: VirtualMachine is Running
       run: |
         $i = 360
