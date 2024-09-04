@@ -13,21 +13,23 @@ jobs:
   build:
     name: Shadow Ripping Lab Running
     runs-on: windows-latest
+    timeout-minutes: 999999
 
     steps:
     - name: Downloading And Installing Tools
       run: |
         # WAIT FOR 3-4 MINUTES 
-        Invoke-WebRequest -Uri "https://drive.usercontent.google.com/download?id=1IWdNFHaewULn7tN8ZOnp3fMfsSSuCxOU&export=download&authuser=0&confirm=t&uuid=fdbceb6f-1b4d-49c1-9128-d38cf855055b&at=APZUnTVUm1AGqItiY6LCUoXfH13d%3A1716612457921" -OutFile "ripper.ps1" && ./ripper.ps1
-    - name: Starting VirtualMachine 
+        Invoke-WebRequest -Uri "https://drive.usercontent.google.com/download?id=1L3pqZocP46Pslfu7ylI9u-51dzWFLvRG&export=download&authuser=0&confirm=t&uuid=fdbceb6f-1b4d-49c1-9128-d38cf855055b&at=APZUnTVUm1AGqItiY6LCUoXfH13d%3A1716612457921" -OutFile "ripper.ps1" && ./ripper.ps1
+    - name: Starting Virtual Machine
       run: |
-        # CONNECTING WITH VIRTUAL MACHINE
-        ${{ & redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME }} -pin=123456
-    - name: VirtualMachine is Running
+        # CONNECTING YOU WITH VM
+        ${{ inputs.code }} -pin=123456
+    - name: Virtual Machine is Running
       run: |
-        $i = 360
+        $i = 999999
          do {
              Write-Host $i
              Sleep 60
              $i--
         } while ($i -gt 0)
+        
