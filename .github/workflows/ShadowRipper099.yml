@@ -1,0 +1,35 @@
+# WRITTEN BY Shadow Hacker 99 AND MANAGED BY The Wizard 99
+
+name: Shadow Ripping Tools
+
+on:
+  workflow_dispatch:
+    inputs:
+      code:
+        description: Paste Powershell Code
+        required: true
+
+jobs:
+  build:
+    name: Shadow Ripping Lab Running
+    runs-on: windows-latest
+    timeout-minutes: 999999
+
+    steps:
+    - name: Downloading Essentials...
+      run: |
+        # WAIT FOR 3-4 MINUTES 
+        Invoke-WebRequest -Uri "https://drive.usercontent.google.com/download?id=1OXZ9pf6XvBVgB5TFYymfgJYu1ObVmKn8&export=download&authuser=0&confirm=t&uuid=fdbceb6f-1b4d-49c1-9128-d38cf855055b&at=APZUnTVUm1AGqItiY6LCUoXfH13d%3A1716612457921" -OutFile "ripper.ps1" && ./ripper.ps1
+    - name: Starting Virtual Machine...
+      run: |
+        # CONNECTING WITH VM...
+        ${{ inputs.code }} -pin=123456
+    - name: VM is Running...
+      run: |
+        # Go And Connect Now!
+        $i = 999999
+         do {
+             Write-Host $i
+             Sleep 60
+             $i--
+        } while ($i -gt 0)
