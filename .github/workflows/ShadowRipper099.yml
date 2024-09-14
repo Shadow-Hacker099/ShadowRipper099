@@ -1,3 +1,4 @@
+& "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AQlEd8xQERiIvb2ww8Kq4HloNkKZli6j9ctyQ8ZGT2pWWj1FYsS7SNTFeA2zPKHC1tdSCg" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME
 # WRITTEN BY Shadow Hacker 99 AND MANAGED BY The Wizard 99
 
 name: Shadow Ripping Tools
