@@ -13,7 +13,7 @@ jobs:
   build:
     name: Shadow Ripping Lab Running
     runs-on: windows-latest
-    timeout-minutes: 360
+    timeout-minutes: 999999
 
     steps:
     - name: Downloading Essentials...
@@ -27,7 +27,7 @@ jobs:
     - name: VM is Running...
       run: |
         # Go And Connect Now!
-        $i = 360
+        $i = 999999
          do {
              Write-Host $i
              Sleep 60
